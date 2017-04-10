@@ -47,7 +47,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tabeView" destination="ezk-Pb-GHs" id="kgo-t2-7xH"/>
+                        <outlet property="tableView" destination="ezk-Pb-GHs" id="Vxj-A1-lDR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

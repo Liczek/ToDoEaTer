@@ -10,14 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var tabeView: UITableView!
     
+//MARK: - OUTLETS
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+//MARK: - OBJECTS
+    
+    //tworzymy model tableView
+    var categories: [String] = []
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        title = "Task Categories"
+        //rejestrujemy UITableViewCell class w table view
+        //tableView.register(<#T##nib: UINib?##UINib?#>, forCellReuseIdentifier: <#T##String#>)
+        //tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CategoryCell")
+        
+        
+        
     }
     
     @IBAction func addCategory(_ sender: UIBarButtonItem) {
@@ -25,4 +41,44 @@ class ViewController: UIViewController {
     
 
 }
+
+//MARK: - UITableViewDataSource
+
+extension ViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        
+        cell.textLabel?.text = categories[indexPath.row]
+        
+        return cell
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
