@@ -37,10 +37,34 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addCategory(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Add New Category", message: "Add a new name category", preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Add", style: .default) {
+            action in
+            if let textField = alert.textFields?.first {
+                let categoryNameToSave = textField.text
+                self.categories.append(categoryNameToSave!)
+                self.tableView.reloadData()
+            } else {
+                return
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        alert.addTextField()
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
-
 }
+
+            
+            
+
 
 //MARK: - UITableViewDataSource
 
