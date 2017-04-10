@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -19,7 +20,7 @@ class ViewController: UIViewController {
 //MARK: - OBJECTS
     
     //tworzymy model tableView
-    var categories: [String] = []
+    var categories: [NSManagedObject] = []
     
     
 
@@ -76,9 +77,11 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let category = categories[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
-        cell.textLabel?.text = categories[indexPath.row]
+        cell.textLabel?.text = category.value(forKeyPath: "name") as? String
         
         return cell
     }
