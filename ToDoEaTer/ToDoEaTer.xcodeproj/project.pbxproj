@@ -304,6 +304,7 @@
 				C8E74CAD1E9BF814009128F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

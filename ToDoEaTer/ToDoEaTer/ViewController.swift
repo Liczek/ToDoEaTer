@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         //tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CategoryCell")
         
-        
+        fetchData()
         
     }
     
@@ -62,15 +62,18 @@ class ViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    //zamiast if let można użyć guard let
+    
+    
+    
     func save(name: String) {
+        //zamiast if let można użyć guard let
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "Categories", in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: "Category", in: managedContext)!
         
         let category = NSManagedObject(entity: entity, insertInto: managedContext)
         
@@ -82,6 +85,24 @@ class ViewController: UIViewController {
             categories.append(category)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func fetchData() {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Category")
+        
+        do {
+            categories = try managedContext.fetch(fetchRequest)
+        } catch {
+            let error = error as NSError
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
 }
