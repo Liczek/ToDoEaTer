@@ -45,7 +45,9 @@ class ViewController: UIViewController {
             action in
             if let textField = alert.textFields?.first {
                 let categoryNameToSave = textField.text
-                self.categories.append(categoryNameToSave!)
+                
+                
+                self.save(name: categoryNameToSave!)
                 self.tableView.reloadData()
             } else {
                 return
@@ -60,7 +62,28 @@ class ViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
+    //zamiast if let można użyć guard let
+    func save(name: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Categories", in: managedContext)!
+        
+        let category = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        category.setValue(name, forKeyPath: "name")
+        
+        
+        do {
+            try managedContext.save()
+            categories.append(category)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
 }
 
             
