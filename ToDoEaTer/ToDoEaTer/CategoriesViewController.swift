@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class CategoriesViewController: UIViewController {
     
     
 //MARK: - OUTLETS
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
 
 //MARK: - UITableViewDataSource
 
-extension ViewController: UITableViewDataSource {
+extension CategoriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count

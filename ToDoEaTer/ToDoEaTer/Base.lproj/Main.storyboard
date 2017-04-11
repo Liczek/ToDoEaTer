@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Categories View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoEaTer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CategoriesViewController" customModule="ToDoEaTer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,6 +40,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cev-Za-5pV">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="bli-hy-sNe">
+                            <connections>
+                                <segue destination="Smj-eT-zJK" kind="presentation" id="DFJ-iV-4SS"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PJl-mO-h5n">
                             <connections>
                                 <action selector="addCategory:" destination="BYZ-38-t0r" id="hUE-cd-ux8"/>
@@ -53,6 +58,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.625" y="123.59154929577466"/>
+        </scene>
+        <!--Add New Category-->
+        <scene sceneID="G8K-W6-qeh">
+            <objects>
+                <viewController id="nKb-IK-D6U" customClass="CategoryDetailViewController" customModule="ToDoEaTer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2ar-3I-2g9"/>
+                        <viewControllerLayoutGuide type="bottom" id="gea-r2-fJv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kWc-At-BUk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnN-ae-cYI">
+                                <rect key="frame" x="16" y="88" width="288" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLz-MB-7Fj">
+                                <rect key="frame" x="40" y="120" width="240" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3N-Eh-GUm">
+                                <rect key="frame" x="58" y="172" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelBTNTaped:" destination="nKb-IK-D6U" eventType="touchUpInside" id="vUQ-d3-dKT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agR-2t-9iZ">
+                                <rect key="frame" x="215" y="172" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addBTNTapped:" destination="nKb-IK-D6U" eventType="touchUpInside" id="F7c-GD-5my"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Category" id="LTY-wN-f5G">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="syR-cP-uUa">
+                            <connections>
+                                <action selector="cancel:" destination="nKb-IK-D6U" id="CBe-so-S4l"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ddy-vL-Zyk">
+                            <connections>
+                                <action selector="doneTaped:" destination="nKb-IK-D6U" id="WUC-oe-Ffg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="agR-2t-9iZ" id="r04-YU-Qfs"/>
+                        <outlet property="cancelButton" destination="p3N-Eh-GUm" id="zwj-Zi-bTi"/>
+                        <outlet property="textField" destination="kLz-MB-7Fj" id="hBh-p1-NSb"/>
+                        <outlet property="window" destination="dnN-ae-cYI" id="yX9-6t-zKP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYj-w9-tlq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2525.625" y="123.59154929577466"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bmw-UX-hL4">
@@ -71,6 +141,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9H-Us-L75" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="242" y="124"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cjp-QF-Mrb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Smj-eT-zJK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PQ8-Ol-LG4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nKb-IK-D6U" kind="relationship" relationship="rootViewController" id="I3K-GF-Sp6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQg-dv-pul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="124"/>
         </scene>
     </scenes>
 </document>
