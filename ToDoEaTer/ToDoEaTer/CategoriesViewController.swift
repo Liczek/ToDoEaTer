@@ -111,6 +111,38 @@ class CategoriesViewController: UIViewController, CategoryDetailViewControllerDe
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        categories.remove(at: indexPath.row)
+//        let indexPaths = [indexPath]
+//        tableView.deleteRows(at: indexPaths, with: .automatic)
+        
+        
+        let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let categoryToDelete = categories[indexPath.row]
+   // usuwanie
+        if editingStyle == .delete {
+            managedContext.delete(categoryToDelete)
+   // zapisanie po usunięciu
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Error while deleting categry: \(error.userInfo)")
+            }
+        }
+   // reload table view
+        let fetchRequest:NSFetchRequest<Category> = Category.fetchRequest()
+        
+        do {
+            categories = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Error while fetching data from DB: \(error.userInfo)")
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
     
 //MARK: - PREPARE FOR SEGUE
     
