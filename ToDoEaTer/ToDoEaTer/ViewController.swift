@@ -96,7 +96,8 @@ class ViewController: UIViewController {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Category")
+        //let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Category")
+        let fetchRequest:NSFetchRequest<Category> = Category.fetchRequest()
         
         do {
             categories = try managedContext.fetch(fetchRequest)
