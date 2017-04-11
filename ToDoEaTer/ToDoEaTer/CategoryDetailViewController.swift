@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
-
+protocol CategoryDetailViewControllerDelegate: class{
+    func categoryDetailViewControllerDidCancel(_ controller: CategoryDetailViewController)
+    func categoryDetailViewController(_ controller: CategoryDetailViewController, didFinishAdding categoryName: String)
 }
+
 
 class CategoryDetailViewController: UIViewController, UITextFieldDelegate {
     
@@ -19,7 +23,7 @@ class CategoryDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     
-    
+    weak var delegate: CategoryDetailViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +40,27 @@ class CategoryDetailViewController: UIViewController, UITextFieldDelegate {
     
 //MARK: - Actions
     
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func cancel() {
+        delegate?.categoryDetailViewControllerDidCancel(self)
     }
     
-    @IBAction func doneTaped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func doneTaped() {
+        if textField.text != nil {
+            let categoryName = textField.text!
+            delegate?.categoryDetailViewController(self, didFinishAdding: categoryName)
+        }
+        
+        
     }
     
     @IBAction func cancelBTNTaped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        delegate?.categoryDetailViewControllerDidCancel(self)
     }
     @IBAction func addBTNTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        if textField.text != nil {
+            let categoryName = textField.text!
+            delegate?.categoryDetailViewController(self, didFinishAdding: categoryName)
+        }
     }
     
 //MARK: - Methods
@@ -68,6 +80,10 @@ class CategoryDetailViewController: UIViewController, UITextFieldDelegate {
         textField.placeholder = "Enter name of new Category"
         textField.backgroundColor = UIColor.white
     }
+    
+
+    
+    
     
 
     /*

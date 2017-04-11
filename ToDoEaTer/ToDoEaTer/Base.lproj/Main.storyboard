@@ -40,14 +40,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cev-Za-5pV">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="bli-hy-sNe">
-                            <connections>
-                                <segue destination="Smj-eT-zJK" kind="presentation" id="DFJ-iV-4SS"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PJl-mO-h5n">
                             <connections>
                                 <action selector="addCategory:" destination="BYZ-38-t0r" id="hUE-cd-ux8"/>
+                                <segue destination="Smj-eT-zJK" kind="presentation" identifier="CategoryDetail" id="xTG-y7-6XR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -81,6 +77,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneTaped" destination="nKb-IK-D6U" eventType="editingDidEndOnExit" id="pPP-ya-EEz"/>
+                                    <outlet property="delegate" destination="nKb-IK-D6U" id="Y6h-Lw-sQT"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3N-Eh-GUm">
                                 <rect key="frame" x="58" y="172" width="50" height="30"/>

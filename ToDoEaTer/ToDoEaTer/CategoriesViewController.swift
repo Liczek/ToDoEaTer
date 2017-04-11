@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CategoriesViewController: UIViewController {
+class CategoriesViewController: UIViewController, CategoryDetailViewControllerDelegate, UINavigationControllerDelegate {
     
     
 //MARK: - OUTLETS
@@ -37,31 +37,35 @@ class CategoriesViewController: UIViewController {
         
     }
     
-    @IBAction func addCategory(_ sender: UIBarButtonItem) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        let alert = UIAlertController(title: "Add New Category", message: "Add a new name category", preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Add", style: .default) {
-            action in
-            if let textField = alert.textFields?.first {
-                let categoryNameToSave = textField.text
-                
-                
-                self.save(name: categoryNameToSave!)
-                self.tableView.reloadData()
-            } else {
-                return
-            }
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        
-        alert.addTextField()
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
     }
+    
+//    @IBAction func addCategory(_ sender: UIBarButtonItem) {
+//        
+//        let alert = UIAlertController(title: "Add New Category", message: "Add a new name category", preferredStyle: .alert)
+//        
+//        let saveAction = UIAlertAction(title: "Add", style: .default) {
+//            action in
+//            if let textField = alert.textFields?.first {
+//                let categoryNameToSave = textField.text
+//                
+//                
+//                self.save(name: categoryNameToSave!)
+//                self.tableView.reloadData()
+//            } else {
+//                return
+//            }
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+//        
+//        alert.addTextField()
+//        alert.addAction(saveAction)
+//        alert.addAction(cancelAction)
+//        
+//        present(alert, animated: true, completion: nil)
+//    }
     
     
     
@@ -106,6 +110,31 @@ class CategoriesViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
+    
+    
+//MARK: - PREPARE FOR SEGUE
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CategoryDetail" {
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! CategoryDetailViewController
+            controller.delegate = self
+        }
+    }
+    
+    
+    func categoryDetailViewControllerDidCancel(_ controller: CategoryDetailViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func categoryDetailViewController(_ controller: CategoryDetailViewController, didFinishAdding categoryName: String) {
+        save(name: categoryName)
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
+    }
+    
+    
 }
 
             
