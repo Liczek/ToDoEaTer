@@ -209,11 +209,6 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension UITableViewCell {
-    var indexPath: IndexPath? {
-        return (superview as? UITableView)?.indexPath(for: self)
-    }
-}
 
 
 

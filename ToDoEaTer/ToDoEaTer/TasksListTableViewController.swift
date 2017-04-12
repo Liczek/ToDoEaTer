@@ -8,11 +8,14 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
 class TasksListTableViewController: UITableViewController {
     
     var category = String()
+    
+    var tasks: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
