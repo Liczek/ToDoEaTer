@@ -27,7 +27,7 @@ class CategoriesViewController: UIViewController, CategoryDetailViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Task Categories"
+        title = "Categories"
         //rejestrujemy UITableViewCell class w table view
         //tableView.register(<#T##nib: UINib?##UINib?#>, forCellReuseIdentifier: <#T##String#>)
         //tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
@@ -155,6 +155,12 @@ class CategoriesViewController: UIViewController, CategoryDetailViewControllerDe
             let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! CategoryDetailViewController
             controller.delegate = self
+        } else if segue.identifier == "TasksList" {
+            let controller = segue.destination as! TasksListTableViewController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let category = categories[indexPath.row]
+                controller.category = category.value(forKeyPath: "name") as! String
+            }
         }
     }
     
@@ -201,6 +207,12 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+}
+
+extension UITableViewCell {
+    var indexPath: IndexPath? {
+        return (superview as? UITableView)?.indexPath(for: self)
+    }
 }
 
 

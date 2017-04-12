@@ -12,10 +12,12 @@ import UIKit
 
 class TasksListTableViewController: UITableViewController {
     
+    var category = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Tasks List"
+        title = category
     }
     
     
