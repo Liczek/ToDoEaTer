@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C84C57251E9EAC64009682DC /* TasksListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84C57241E9EAC64009682DC /* TasksListTableViewController.swift */; };
 		C86942631E9D45C5004AD7D0 /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86942621E9D45C5004AD7D0 /* CategoryDetailViewController.swift */; };
 		C8E74C9A1E9BF814009128F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E74C991E9BF814009128F4 /* AppDelegate.swift */; };
 		C8E74C9C1E9BF814009128F4 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E74C9B1E9BF814009128F4 /* CategoriesViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C84C57241E9EAC64009682DC /* TasksListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksListTableViewController.swift; sourceTree = "<group>"; };
 		C86942621E9D45C5004AD7D0 /* CategoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewController.swift; sourceTree = "<group>"; };
 		C8E74C961E9BF814009128F4 /* ToDoEaTer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoEaTer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E74C991E9BF814009128F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				C8E74C9D1E9BF814009128F4 /* Main.storyboard */,
 				C8E74C9B1E9BF814009128F4 /* CategoriesViewController.swift */,
 				C86942621E9D45C5004AD7D0 /* CategoryDetailViewController.swift */,
+				C84C57241E9EAC64009682DC /* TasksListTableViewController.swift */,
 				C8E74CA31E9BF814009128F4 /* Assets.xcassets */,
 				C8E74CA51E9BF814009128F4 /* LaunchScreen.storyboard */,
 				C8E74CA81E9BF814009128F4 /* Info.plist */,
@@ -146,6 +149,7 @@
 				C8E74C9C1E9BF814009128F4 /* CategoriesViewController.swift in Sources */,
 				C86942631E9D45C5004AD7D0 /* CategoryDetailViewController.swift in Sources */,
 				C8E74CA21E9BF814009128F4 /* ToDoEaTer.xcdatamodeld in Sources */,
+				C84C57251E9EAC64009682DC /* TasksListTableViewController.swift in Sources */,
 				C8E74C9A1E9BF814009128F4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

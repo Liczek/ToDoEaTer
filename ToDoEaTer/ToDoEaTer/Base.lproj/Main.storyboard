@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories View Controller-->
+        <!--Categories-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CategoriesViewController" customModule="ToDoEaTer" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                             <constraint firstItem="ezk-Pb-GHs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="pdh-o8-c2n"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Cev-Za-5pV">
+                    <navigationItem key="navigationItem" title="Categories" id="Cev-Za-5pV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PJl-mO-h5n">
                             <connections>
                                 <action selector="addCategory:" destination="BYZ-38-t0r" id="hUE-cd-ux8"/>
@@ -49,11 +49,40 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ezk-Pb-GHs" id="Vxj-A1-lDR"/>
+                        <segue destination="cEj-zd-WTE" kind="show" identifier="TasksList" id="WXS-MK-8Ov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.625" y="123.59154929577466"/>
+        </scene>
+        <!--Tasks List Table View Controller-->
+        <scene sceneID="m7T-1d-ANF">
+            <objects>
+                <tableViewController id="cEj-zd-WTE" customClass="TasksListTableViewController" customModule="ToDoEaTer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EyI-0T-Okc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TasksListCell" id="Ut1-hy-83A">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ut1-hy-83A" id="bbf-bj-mmr">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cEj-zd-WTE" id="Ss4-ar-TZc"/>
+                            <outlet property="delegate" destination="cEj-zd-WTE" id="llD-Ig-ltp"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57I-uz-Clj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="964"/>
         </scene>
         <!--Add New Category-->
         <scene sceneID="G8K-W6-qeh">

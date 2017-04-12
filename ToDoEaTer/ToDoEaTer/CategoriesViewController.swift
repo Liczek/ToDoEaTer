@@ -144,6 +144,9 @@ class CategoriesViewController: UIViewController, CategoryDetailViewControllerDe
     }
     
     
+    
+    
+    
 //MARK: - PREPARE FOR SEGUE
     
     
@@ -175,7 +178,7 @@ class CategoriesViewController: UIViewController, CategoryDetailViewControllerDe
 
 //MARK: - UITableViewDataSource
 
-extension CategoriesViewController: UITableViewDataSource {
+extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
@@ -190,6 +193,11 @@ extension CategoriesViewController: UITableViewDataSource {
         cell.textLabel?.text = category.value(forKeyPath: "name") as? String
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = categories[indexPath.row]
+        performSegue(withIdentifier: "TasksList", sender: category)
     }
     
     
