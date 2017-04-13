@@ -29,45 +29,14 @@ class CategoriesViewController: UIViewController, CategoryDetailViewControllerDe
         
         title = "Categories"
         //rejestrujemy UITableViewCell class w table view
-        //tableView.register(<#T##nib: UINib?##UINib?#>, forCellReuseIdentifier: <#T##String#>)
-        //tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CategoryCell")
         
         fetchData()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
     
-//    @IBAction func addCategory(_ sender: UIBarButtonItem) {
-//        
-//        let alert = UIAlertController(title: "Add New Category", message: "Add a new name category", preferredStyle: .alert)
-//        
-//        let saveAction = UIAlertAction(title: "Add", style: .default) {
-//            action in
-//            if let textField = alert.textFields?.first {
-//                let categoryNameToSave = textField.text
-//                
-//                
-//                self.save(name: categoryNameToSave!)
-//                self.tableView.reloadData()
-//            } else {
-//                return
-//            }
-//        }
-//        
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-//        
-//        alert.addTextField()
-//        alert.addAction(saveAction)
-//        alert.addAction(cancelAction)
-//        
-//        present(alert, animated: true, completion: nil)
-//    }
-    
-    
+//MARK: - SAVE
     
     func save(name: String) {
         //zamiast if let można użyć guard let
@@ -91,6 +60,9 @@ class CategoriesViewController: UIViewController, CategoryDetailViewControllerDe
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    
+//MARK: - FETCH
     
     func fetchData() {
         

@@ -8,12 +8,21 @@
 
 import UIKit
 
-class TextFieldCell: UITableViewCell {
+protocol TextFieldCellDelegate: class {
+    func textFieldCellDelegate(_ controller: TextFieldCell, didSetNewTask newTaskName: String)
+}
+
+class TextFieldCell: UITableViewCell, UITextFieldDelegate {
+    
+    
+    weak var delegateTextFieldCell: TextFieldCellDelegate?
     
     
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var bcgImage: UIImageView!
+    
+    
     
 
     override func awakeFromNib() {
@@ -23,6 +32,9 @@ class TextFieldCell: UITableViewCell {
         
         bcgImage.backgroundColor = UIColor.lightGray
         
+        textField.becomeFirstResponder()
+        
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         
         
@@ -33,5 +45,15 @@ class TextFieldCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
+    func textFieldDidChange(_ textField: UITextField) {
+        self.textField.delegate = self
+        let newTaskName = textField.text!
+        delegateTextFieldCell?.textFieldCellDelegate(self, didSetNewTask: newTaskName)
+        
+    }
+    
     
 }

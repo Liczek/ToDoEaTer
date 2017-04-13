@@ -118,7 +118,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Task" id="aEu-In-Yrx">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uqb-Lk-9dT"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="xn4-4d-AOr"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="xn4-4d-AOr">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="YZY-Io-zBe" id="ZMJ-KN-dgj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cT-DG-ibN" userLabel="First Responder" sceneMemberID="firstResponder"/>

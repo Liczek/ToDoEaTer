@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class AddTaskTableViewController: UITableViewController {
+class AddTaskTableViewController: UITableViewController, UITextFieldDelegate {
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,7 @@ class AddTaskTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "ClearCell", bundle: nil), forCellReuseIdentifier: "ClearCell")
         
         
+
     }
     
     
@@ -44,16 +48,48 @@ class AddTaskTableViewController: UITableViewController {
         
         if indexPath.section == 0 && indexPath.row == 0 {
         cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath)
+        
+        
+         
         }
         
         if indexPath.section == 0 && indexPath.row == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: "ClearCell", for: indexPath)
+            
         }
         
         
         
         return cell
     }
+    
+    
+    
+    
+    
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        
+        print("xxx")
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }
