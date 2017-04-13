@@ -49,7 +49,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ezk-Pb-GHs" id="Vxj-A1-lDR"/>
-                        <segue destination="cEj-zd-WTE" kind="push" identifier="TasksList" id="WXS-MK-8Ov"/>
+                        <segue destination="cEj-zd-WTE" kind="show" identifier="TasksList" id="WXS-MK-8Ov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -106,7 +106,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aR9-al-cmH" id="2Ke-Jf-t98">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -174,12 +174,12 @@
                     <navigationItem key="navigationItem" title="Add New Category" id="LTY-wN-f5G">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="syR-cP-uUa">
                             <connections>
-                                <action selector="cancel:" destination="nKb-IK-D6U" id="CBe-so-S4l"/>
+                                <action selector="cancel" destination="nKb-IK-D6U" id="c4h-AH-NEg"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ddy-vL-Zyk">
                             <connections>
-                                <action selector="doneTaped:" destination="nKb-IK-D6U" id="WUC-oe-Ffg"/>
+                                <action selector="doneTaped" destination="nKb-IK-D6U" id="HJR-ij-rux"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

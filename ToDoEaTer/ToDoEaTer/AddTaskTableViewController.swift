@@ -11,9 +11,19 @@ import UIKit
 
 class AddTaskTableViewController: UITableViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //tableView.registerNib(UINib(nibName: "CustomOneCell", bundle: nil), forCellReuseIdentifier: "CustomCellOne")
+        tableView.register(UINib(nibName: "TextFieldCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
+        tableView.register(UINib(nibName: "ClearCell", bundle: nil), forCellReuseIdentifier: "ClearCell")
+        
+        
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -21,7 +31,7 @@ class AddTaskTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return 25
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,7 +39,18 @@ class AddTaskTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AddTaskCell", for: indexPath)
+        
+        var cell = UITableViewCell()
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+        cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath)
+        }
+        
+        if indexPath.section == 0 && indexPath.row == 1 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "ClearCell", for: indexPath)
+        }
+        
+        
         
         return cell
     }
