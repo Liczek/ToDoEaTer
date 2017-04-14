@@ -9,8 +9,7 @@
 import UIKit
 
 protocol TextFieldCellDelegate: class {
-    func textFieldCellDelegate(_ controller: TextFieldCell, didSetNewTask newTaskName: String)
-}
+    func textFieldCellDelegate(_ cell: TextFieldCell, didSetNewTaskName newTaskName: String)}
 
 class TextFieldCell: UITableViewCell, UITextFieldDelegate {
     
@@ -19,7 +18,7 @@ class TextFieldCell: UITableViewCell, UITextFieldDelegate {
     
     
     
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var bcgImage: UIImageView!
     
     
@@ -28,17 +27,26 @@ class TextFieldCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        textField.backgroundColor = UIColor.white
+        self.nameTextField.delegate = self
+        nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingDidEnd)
+        
+        
+        
+        nameTextField.backgroundColor = UIColor.white
         
         bcgImage.backgroundColor = UIColor.lightGray
         
-        textField.becomeFirstResponder()
-        
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        
-        
+        nameTextField.becomeFirstResponder()
+    }
+    
+    func textFieldDidChange(_ textField: UITextField) {
+        let newTaskName = textField.text!
+        print(newTaskName)
+        delegateTextFieldCell?.textFieldCellDelegate(self, didSetNewTaskName: newTaskName)
         
     }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -48,12 +56,6 @@ class TextFieldCell: UITableViewCell, UITextFieldDelegate {
     
     
     
-    func textFieldDidChange(_ textField: UITextField) {
-        self.textField.delegate = self
-        let newTaskName = textField.text!
-        delegateTextFieldCell?.textFieldCellDelegate(self, didSetNewTask: newTaskName)
-        
-    }
     
     
 }

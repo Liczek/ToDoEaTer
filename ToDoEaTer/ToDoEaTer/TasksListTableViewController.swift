@@ -16,12 +16,12 @@ class TasksListTableViewController: UITableViewController, TextFieldCellDelegate
     var category = String()
     
     var tasks: [NSManagedObject] = []
+    
+    var tasksArrey = [String]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         title = category
         
@@ -29,14 +29,64 @@ class TasksListTableViewController: UITableViewController, TextFieldCellDelegate
         tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+        print("View Will Apepar count \(tasksArrey.count)")
+    }
     
-    func textFieldCellDelegate(_ controller: TextFieldCell, didSetNewTask newTaskName: String) {
-        save(taskName: newTaskName)
-        print("\(newTaskName) saved")
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return tasksArrey.count
+//        var numberOfRowsInSection = 0
+//        
+//        if section == 0 {
+//            numberOfRowsInSection = 2
+//        }
+//        if section == 1 {
+//            numberOfRowsInSection = 3
+//        }
+//        return numberOfRowsInSection
+    }
+    
+    func textFieldCellDelegate(_ cell: TextFieldCell, didSetNewTaskName newTaskName: String) {
+        tasksArrey.append(newTaskName)
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let task = tasks[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TasksListCell", for: indexPath)
+                let taskName = tasksArrey[indexPath.row]
+                cell.textLabel?.text = taskName
+        return cell
     }
     
     
-//MARK: - SAVE
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //MARK: - SAVE
     
     func save(taskName: String) {
         
@@ -55,14 +105,14 @@ class TasksListTableViewController: UITableViewController, TextFieldCellDelegate
         do {
             try managedContext.save()
             tasks.append(task)
-        } catch let error as NSError {           
+        } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
             
         }
         
     }
     
-//MARK: - FETCH
+    //MARK: - FETCH
     
     func fetchData() {
         
@@ -82,51 +132,7 @@ class TasksListTableViewController: UITableViewController, TextFieldCellDelegate
         }
         
     }
-    
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 1
-//        var numberOfRowsInSection = 0
-//        
-//        if section == 0 {
-//            numberOfRowsInSection = 2
-//        }
-//        if section == 1 {
-//            numberOfRowsInSection = 3
-//        }
-//        return numberOfRowsInSection
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let task = tasks[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TasksListCell", for: indexPath)
-        
-        //cell.textLabel!.text = task.value(forKeyPath: "taskName") as? String
-        
-        return cell
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     

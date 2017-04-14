@@ -65,12 +65,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TasksListCell" id="Ut1-hy-83A">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TasksListCell" textLabel="0Ec-bi-BjH" style="IBUITableViewCellStyleDefault" id="Ut1-hy-83A">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ut1-hy-83A" id="bbf-bj-mmr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Ec-bi-BjH">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -83,7 +92,7 @@
                     <navigationItem key="navigationItem" id="zEB-l2-Gva">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZVl-tZ-D6r">
                             <connections>
-                                <segue destination="dPU-FG-Ccc" kind="presentation" id="NuX-pK-kfp"/>
+                                <segue destination="dPU-FG-Ccc" kind="presentation" identifier="AddTaskButton" id="NuX-pK-kfp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

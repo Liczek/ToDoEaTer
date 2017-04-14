@@ -38,7 +38,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bcgImage" destination="6fJ-aX-1wz" id="njJ-ml-sAD"/>
-                <outlet property="textField" destination="5Fg-I7-D4R" id="JKg-0D-Wuw"/>
+                <outlet property="nameTextField" destination="5Fg-I7-D4R" id="JQQ-z0-bxV"/>
             </connections>
         </tableViewCell>
     </objects>

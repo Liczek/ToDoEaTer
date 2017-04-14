@@ -11,6 +11,8 @@
 		C840FEB11E9FE1A9006AED11 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C840FEAF1E9FE1A9006AED11 /* TextFieldCell.xib */; };
 		C840FEB61E9FE385006AED11 /* ClearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C840FEB41E9FE385006AED11 /* ClearCell.swift */; };
 		C840FEB71E9FE385006AED11 /* ClearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C840FEB51E9FE385006AED11 /* ClearCell.xib */; };
+		C841A5A41EA1345D0089A3A8 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C841A5A21EA1345D0089A3A8 /* LabelCell.swift */; };
+		C841A5A51EA1345D0089A3A8 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C841A5A31EA1345D0089A3A8 /* LabelCell.xib */; };
 		C84C57251E9EAC64009682DC /* TasksListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84C57241E9EAC64009682DC /* TasksListTableViewController.swift */; };
 		C86942631E9D45C5004AD7D0 /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86942621E9D45C5004AD7D0 /* CategoryDetailViewController.swift */; };
 		C8DC83771E9ECD7300111BC3 /* AddTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DC83761E9ECD7300111BC3 /* AddTaskTableViewController.swift */; };
@@ -27,6 +29,8 @@
 		C840FEAF1E9FE1A9006AED11 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		C840FEB41E9FE385006AED11 /* ClearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearCell.swift; sourceTree = "<group>"; };
 		C840FEB51E9FE385006AED11 /* ClearCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClearCell.xib; sourceTree = "<group>"; };
+		C841A5A21EA1345D0089A3A8 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		C841A5A31EA1345D0089A3A8 /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
 		C84C57241E9EAC64009682DC /* TasksListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksListTableViewController.swift; sourceTree = "<group>"; };
 		C86942621E9D45C5004AD7D0 /* CategoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewController.swift; sourceTree = "<group>"; };
 		C8DC83761E9ECD7300111BC3 /* AddTaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskTableViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 				C8E74CA31E9BF814009128F4 /* Assets.xcassets */,
 				C840FEB41E9FE385006AED11 /* ClearCell.swift */,
 				C840FEB51E9FE385006AED11 /* ClearCell.xib */,
+				C841A5A21EA1345D0089A3A8 /* LabelCell.swift */,
+				C841A5A31EA1345D0089A3A8 /* LabelCell.xib */,
 				C840FEAE1E9FE1A9006AED11 /* TextFieldCell.swift */,
 				C840FEAF1E9FE1A9006AED11 /* TextFieldCell.xib */,
 				C8E74CA51E9BF814009128F4 /* LaunchScreen.storyboard */,
@@ -148,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C841A5A51EA1345D0089A3A8 /* LabelCell.xib in Resources */,
 				C8E74CA71E9BF814009128F4 /* LaunchScreen.storyboard in Resources */,
 				C840FEB71E9FE385006AED11 /* ClearCell.xib in Resources */,
 				C8E74CA41E9BF814009128F4 /* Assets.xcassets in Resources */,
@@ -170,6 +177,7 @@
 				C8E74CA21E9BF814009128F4 /* ToDoEaTer.xcdatamodeld in Sources */,
 				C84C57251E9EAC64009682DC /* TasksListTableViewController.swift in Sources */,
 				C840FEB01E9FE1A9006AED11 /* TextFieldCell.swift in Sources */,
+				C841A5A41EA1345D0089A3A8 /* LabelCell.swift in Sources */,
 				C8E74C9A1E9BF814009128F4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

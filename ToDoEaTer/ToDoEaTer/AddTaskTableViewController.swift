@@ -12,16 +12,18 @@ import UIKit
 class AddTaskTableViewController: UITableViewController, UITextFieldDelegate {
     
     
-    
+    var clearCell: ClearCell!
+    var labelCell: LabelCell!
+    var textFieldCell: TextFieldCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //tableView.registerNib(UINib(nibName: "CustomOneCell", bundle: nil), forCellReuseIdentifier: "CustomCellOne")
-        tableView.register(UINib(nibName: "TextFieldCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
-        tableView.register(UINib(nibName: "ClearCell", bundle: nil), forCellReuseIdentifier: "ClearCell")
-        
-        
+        self.tableView.register(UINib(nibName: "TextFieldCell", bundle: nil), forCellReuseIdentifier: "TextFieldCell")
+        self.tableView.register(UINib(nibName: "ClearCell", bundle: nil), forCellReuseIdentifier: "ClearCell")
+        self.tableView.register(UINib(nibName: "LabelCell", bundle: nil), forCellReuseIdentifier: "LabelCell")
+     
 
     }
     
@@ -39,7 +41,7 @@ class AddTaskTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,15 +49,21 @@ class AddTaskTableViewController: UITableViewController, UITextFieldDelegate {
         var cell = UITableViewCell()
         
         if indexPath.section == 0 && indexPath.row == 0 {
-        cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
+        var textFieldCell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
+            textFieldCell.nameTextField.placeholder = "test"
+            
+            cell = textFieldCell
         
-        
-         
         }
         
         if indexPath.section == 0 && indexPath.row == 1 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "ClearCell", for: indexPath) as! ClearCell
-            
+            var clearCell = tableView.dequeueReusableCell(withIdentifier: "ClearCell", for: indexPath) as! ClearCell
+            cell = clearCell
+        }
+        
+        if indexPath.section == 0 && indexPath.row == 2 {
+            var labelCell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! LabelCell
+            cell = labelCell
         }
         
         
@@ -70,8 +78,9 @@ class AddTaskTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func doneButtonTapped(_ sender: Any) {
         
         print("xxx")
-        dismiss(animated: true, completion: nil)
         
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
     }
     
     
