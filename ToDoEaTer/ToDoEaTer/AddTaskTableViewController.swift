@@ -47,14 +47,14 @@ class AddTaskTableViewController: UITableViewController, UITextFieldDelegate {
         var cell = UITableViewCell()
         
         if indexPath.section == 0 && indexPath.row == 0 {
-        cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath)
+        cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
         
         
          
         }
         
         if indexPath.section == 0 && indexPath.row == 1 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "ClearCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "ClearCell", for: indexPath) as! ClearCell
             
         }
         
